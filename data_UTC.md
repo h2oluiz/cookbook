@@ -15,11 +15,11 @@ ULR --> Referencia https://stackoverflow.com/questions/4563272/convert-a-python-
     
 ## Final 
 
-import pytz
-from datetime import datetime, date
-from django.conf import settings
+> import pytz
+> from datetime import datetime, date
+> from django.conf import settings
 
-def converter_utc_local(utc_dt):
-    local_tz = pytz.timezone(settings.TIME_ZONE)
-    local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
-    return local_tz.normalize(local_dt)
+> def converter_utc_local(utc_dt):
+>    local_tz = pytz.timezone(settings.TIME_ZONE)
+>    local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
+>    return local_tz.normalize(local_dt)
