@@ -8,14 +8,18 @@ ULR --> Referencia https://stackoverflow.com/questions/4563272/convert-a-python-
 import pytz
 
 local_tz = pytz.timezone('Europe/Moscow') # use your local timezone name here
-# NOTE: pytz.reference.LocalTimezone() would produce wrong result here
-
-## You could use `tzlocal` module to get local timezone on Unix and Win32
-# from tzlocal import get_localzone # $ pip install tzlocal
-
-# # get local timezone    
-# local_tz = get_localzone()
 
 def utc_to_local(utc_dt):
     local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
     return local_tz.normalize(local_dt) # .normalize might be unnecessary
+    
+## Final 
+
+import pytz
+from datetime import datetime, date
+from django.conf import settings
+
+def converter_utc_local(utc_dt):
+    local_tz = pytz.timezone(settings.TIME_ZONE)
+    local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
+    return local_tz.normalize(local_dt)
