@@ -5,13 +5,13 @@ ULR --> Referencia https://stackoverflow.com/questions/4563272/convert-a-python-
 
 ## Funcional: 
 
->import pytz
+    code (4 spaces indent)
+    import pytz
+    local_tz = pytz.timezone('Europe/Moscow') # use your local timezone name here
 
->local_tz = pytz.timezone('Europe/Moscow') # use your local timezone name here
-
->def utc_to_local(utc_dt):
->    local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
->    return local_tz.normalize(local_dt) # .normalize might be unnecessary
+    def utc_to_local(utc_dt):
+        local_dt = utc_dt.replace(tzinfo=pytz.utc).astimezone(local_tz)
+        return local_tz.normalize(local_dt) # .normalize might be unnecessary
     
 ## Final 
 
